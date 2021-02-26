@@ -9,6 +9,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- TODO: Add necessary styles -->
+   <style name="PrimaryButton" parent="Widget.AppCompat.Button">
+       <item name="textAllCaps">false</item>
+       <item name="android:textColor">@color/white</item>
+       <item name="android:background">@color/colorPrimary</item>
+       <item name="android:layout_margin">10dp</item>
+   </style>
 
 </resources>

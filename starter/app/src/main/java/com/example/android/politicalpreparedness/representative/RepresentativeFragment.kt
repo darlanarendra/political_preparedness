@@ -29,6 +29,7 @@ class DetailFragment : Fragment() {
         //TODO: Populate Representative adapter
 
         //TODO: Establish button listeners for field and location search
+        return null
 
     }
 
@@ -48,6 +49,7 @@ class DetailFragment : Fragment() {
 
     private fun isPermissionGranted() : Boolean {
         //TODO: Check if permission is already granted and return (true = granted, false = denied/other)
+        return true
     }
 
     private fun getLocation() {

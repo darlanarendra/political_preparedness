@@ -14,5 +14,36 @@
 
         <!-- TODO: Add Button to navigate to representatives. -->
 
+        <Button
+            android:id="@+id/navigate_to_upcoming_elections"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Upcoming Elections"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_logo" />
+
+        <Button
+            android:id="@+id/navigate_to_my_representatives"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="My Representatives"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/navigate_to_upcoming_elections" />
+
+        <ImageView
+            android:id="@+id/home_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ballot_logo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
