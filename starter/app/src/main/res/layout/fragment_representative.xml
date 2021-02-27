@@ -12,14 +12,16 @@
         android:layout_width="match_parent"
         app:layoutDescription="@xml/fragment_representative_scene">
 
-        <include layout="@layout/scrollable_fields"
-            android:id="@+id/scrollable_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintLeft_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-        <TextView
+         <include
+             android:id="@+id/scrollable_header"
+             layout="@layout/scrollable_fields"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:layout_constraintLeft_toLeftOf="parent"
+             app:layout_constraintLeft_toRightOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <TextView
             android:id="@+id/representative_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +39,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/list_placeholder"
+            app:layout_constraintTop_toBottomOf="@+id/representative_title"
+            app:setRepresentativeListAdapter="@{viewModel._representatives}"
             />
         <TextView
             android:id="@+id/list_placeholder"
