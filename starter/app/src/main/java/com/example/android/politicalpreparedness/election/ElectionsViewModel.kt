@@ -17,11 +17,12 @@ class ElectionsViewModel(private val electionRepository: ElectionRepository): Vi
     private val _electionsData = MutableLiveData<List<Election>>()
     val electionListItems :LiveData<List<Election>> = _electionsData
     private val _favouriteElections = MutableLiveData<List<Election>>()
+    val favouriteElections:LiveData<List<Election>> = _favouriteElections
     val viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(viewModelJob+ Dispatchers.Main)
     init {
         getElectionData()
-        //getFavouriteElections()
+        getFavouriteElections()
     }
 
     private fun getElectionData(){
@@ -39,13 +40,12 @@ class ElectionsViewModel(private val electionRepository: ElectionRepository): Vi
             }
     }
 
-//    private fun getFavouriteElections():LiveData<List<Election>>{
-//            viewModelScope.launch {
-//                electionRepository.getAllElection().collect{
-//                    _favouriteElections.postValue(it)
-//                }
-//            }
-//        return _favouriteElections
-//    }
+    private fun getFavouriteElections(){
+            viewModelScope.launch {
+                electionRepository.getAllElection().collect{
+                    _favouriteElections.postValue(it)
+                }
+            }
+    }
 
 }

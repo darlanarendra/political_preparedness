@@ -6,6 +6,8 @@
     <string name="mailing_address">Mailing Address</string>
     <string name="ballot_information">Ballot Information</string>
     <string name="voting_locations">Voting Locations</string>
+    <string name="upcoming_elections">Upcoming Elections</string>
+    <string name="saved_elections">Saved Elections</string>
 
     <!-- TODO: Add necessary string values -->
 

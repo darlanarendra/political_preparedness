@@ -15,6 +15,7 @@ import com.example.android.politicalpreparedness.util.getViewModelFactory
 class ElectionsFragment: Fragment() {
 
     private lateinit var electionListAdapter: ElectionListAdapter
+    private lateinit var followingListAdapter:ElectionListAdapter
     val viewModel by viewModels<ElectionsViewModel> { getViewModelFactory() }
     private lateinit var fragmentElectionBinding:FragmentElectionBinding
     override fun onCreateView(inflater: LayoutInflater,
@@ -46,6 +47,11 @@ class ElectionsFragment: Fragment() {
                    fragmentElectionBinding.progressBar.visibility = View.GONE
                }
             })
+
+            followingListAdapter = ElectionListAdapter {
+
+            }
+            fragmentElectionBinding.savedElectionRecyclerView.adapter = followingListAdapter
         }else{
             println("View Model is  not initialized")
         }

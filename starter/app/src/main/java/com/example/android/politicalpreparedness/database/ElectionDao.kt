@@ -19,6 +19,6 @@ interface ElectionDao {
 
     //TODO: Add clear query
 
-//    @Query("SELECT * FROM election_table")
-//    fun getAllElection() : Flow<List<Election>>
+    @Query("SELECT * from election_table")
+    fun getAllElection() : Flow<List<Election>>
 }
