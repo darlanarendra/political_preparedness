@@ -5,6 +5,7 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.example.android.politicalpreparedness.election.ElectionsViewModel
 import com.example.android.politicalpreparedness.representative.RepresentativeViewModel
 import java.lang.IllegalArgumentException
 
@@ -18,6 +19,8 @@ class ViewModelFactory(private val electionRepository:ElectionRepository,
         when{
             isAssignableFrom(RepresentativeViewModel::class.java)->
                 RepresentativeViewModel(electionRepository)
+            isAssignableFrom(ElectionsViewModel::class.java)->
+                ElectionsViewModel(electionRepository)
             else->
                 throw IllegalArgumentException("Uknown Error")
 

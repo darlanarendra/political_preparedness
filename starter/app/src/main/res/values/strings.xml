@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Political Preparedness</string>
+    <string name="election_information">Election Information</string>
+    <string name="follow_election">Follow Election</string>
+    <string name="mailing_address">Mailing Address</string>
+    <string name="ballot_information">Ballot Information</string>
+    <string name="voting_locations">Voting Locations</string>
 
     <!-- TODO: Add necessary string values -->
 

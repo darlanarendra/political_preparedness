@@ -16,4 +16,10 @@
        <item name="android:layout_margin">10dp</item>
    </style>
 
+    <style name="Link">Link</style>
+
+    <style name="TitleText">TitleText</style>
+
+    <style name="BlueSubText">BlueSubText</style>
+
 </resources>

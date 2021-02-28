@@ -1,16 +1,51 @@
 package com.example.android.politicalpreparedness.election
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android.politicalpreparedness.network.models.Election
+import com.example.android.politicalpreparedness.util.ElectionRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
-//TODO: Construct ViewModel and provide election datasource
-class ElectionsViewModel: ViewModel() {
+class ElectionsViewModel(private val electionRepository: ElectionRepository): ViewModel() {
 
-    //TODO: Create live data val for upcoming elections
+    private val _electionsData = MutableLiveData<List<Election>>()
+    val electionListItems :LiveData<List<Election>> = _electionsData
+    private val _favouriteElections = MutableLiveData<List<Election>>()
+    val viewModelJob = SupervisorJob()
+    private val viewModelScope = CoroutineScope(viewModelJob+ Dispatchers.Main)
+    init {
+        getElectionData()
+        getFavouriteElections()
+    }
 
-    //TODO: Create live data val for saved elections
+    private fun getElectionData(){
+            try {
+                viewModelScope.launch {
+                    val electionData = try {
+                        electionRepository.getElections().await().elections
+                    } catch (e: Exception) {
+                        emptyList<Election>()
+                    }
+                    _electionsData.value = electionData
+                }
+            }catch(e:Exception){
+                e.printStackTrace()
+            }
+    }
 
-    //TODO: Create val and functions to populate live data for upcoming elections from the API and saved elections from local database
-
-    //TODO: Create functions to navigate to saved or upcoming election voter info
+    private fun getFavouriteElections():LiveData<List<Election>{
+            viewModelScope.launch {
+                electionRepository.getAllElection().collect{
+                    _favouriteElections.postValue(it)
+                }
+            }
+        return _favouriteElections
+    }
 
 }
