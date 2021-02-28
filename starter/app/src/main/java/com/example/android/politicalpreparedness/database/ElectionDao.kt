@@ -4,7 +4,7 @@ import androidx.room.*
 import com.example.android.politicalpreparedness.network.models.Election
 import kotlinx.coroutines.flow.Flow
 
-«
+
 
 @Dao
 interface ElectionDao {
@@ -19,6 +19,6 @@ interface ElectionDao {
 
     //TODO: Add clear query
 
-    @Query("SELECT * FROM election_table")
-    fun getAllElection() : Flow<List<Election>>
+//    @Query("SELECT * FROM election_table")
+//    fun getAllElection() : Flow<List<Election>>
 }

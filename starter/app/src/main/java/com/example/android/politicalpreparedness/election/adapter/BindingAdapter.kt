@@ -19,8 +19,12 @@ fun setRepresentativeAdapter(recyclerView: RecyclerView, items:List<Representati
 
 
 @BindingAdapter("setAdapter")
-fun selElectionAdapter(recyclerView:RecyclerView, items:List<Election>){
+fun selElectionAdapter(recyclerView:RecyclerView, items:List<Election>?){
+    print("items"+items)
     items?.let{
         (recyclerView.adapter as ElectionListAdapter).submitList(it)
+    }
+    recyclerView.apply {
+        layoutManager = LinearLayoutManager(recyclerView.context)
     }
 }

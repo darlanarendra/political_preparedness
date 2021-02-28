@@ -11,6 +11,6 @@ class ElectionRepository {
     private val electionDao:ElectionDao = databaseInstance.electionDao
     fun getRepresentatives(address: String) = CivicsApi.retrofitService.getRepresentatives(address)
     fun getElections() = CivicsApi.retrofitService.getElections()
-    fun getAllElection() = electionDao.getAllElection()
+    //fun getAllElection() = electionDao.getAllElection()
 
 }
