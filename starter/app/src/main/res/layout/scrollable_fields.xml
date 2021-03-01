@@ -80,7 +80,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/zip"
-            app:layout_constraintTop_toBottomOf="@+id/city" />
+            app:layout_constraintTop_toBottomOf="@+id/city"
+            app:stateValue="@{address.state}" />
 
         <Button
             android:id="@+id/button_search"
@@ -117,7 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Representative Search"
-            android:textSize="20dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textStyle="bold"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

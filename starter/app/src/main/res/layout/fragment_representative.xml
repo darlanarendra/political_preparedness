@@ -26,7 +26,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="My Representatives"
-            android:textSize="18sp"
+            android:textColor="@color/cardview_dark_background"
+            android:textStyle="bold"
+            android:textSize="20sp"
             android:gravity="center"
             app:layout_constraintTop_toBottomOf="@id/scrollable_header" />
 
@@ -41,6 +43,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/representative_title"
             app:setRepresentativeListAdapter="@{viewModel._representatives}"
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp"
             />
         <TextView
             android:id="@+id/list_placeholder"

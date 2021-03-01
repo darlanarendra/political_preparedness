@@ -8,7 +8,10 @@
             name="electionViewModel"
             type="com.example.android.politicalpreparedness.election.ElectionsViewModel" />
     </data>
-
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,8 +22,11 @@
             android:id="@+id/upcoming_election_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="10dp"
             android:text="@string/upcoming_elections"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +34,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/upcoming_election_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,8 +47,11 @@
             android:id="@+id/saved_election_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/saved_elections"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +60,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saved_election_recycler_view"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="1dp"
@@ -59,6 +68,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/saved_election_header"
             app:setAdapter="@{electionViewModel.favouriteElections}"
+            android:paddingBottom="20dp"
             />
 
         <ProgressBar
@@ -71,4 +81,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
