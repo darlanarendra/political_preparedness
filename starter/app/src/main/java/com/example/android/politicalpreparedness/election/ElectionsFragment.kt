@@ -49,7 +49,7 @@ class ElectionsFragment: Fragment() {
             })
 
             followingListAdapter = ElectionListAdapter {
-
+                findNavController().navigate(ElectionsFragmentDirections.actionElectionsFragmentToVoterInfoFragment(it))
             }
             fragmentElectionBinding.savedElectionRecyclerView.adapter = followingListAdapter
         }else{

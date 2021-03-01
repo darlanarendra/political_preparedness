@@ -1,21 +1,67 @@
 package com.example.android.politicalpreparedness.election
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.android.politicalpreparedness.database.ElectionDao
+import com.example.android.politicalpreparedness.network.models.Election
+import com.example.android.politicalpreparedness.network.models.State
+import com.example.android.politicalpreparedness.util.ElectionRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
-class VoterInfoViewModel(private val dataSource: ElectionDao) : ViewModel() {
+class VoterInfoViewModel(private val repository: ElectionRepository) : ViewModel() {
 
-    //TODO: Add live data to hold voter info
 
-    //TODO: Add var and methods to populate voter info
+    private var viewModelJob = SupervisorJob()
+    private var viewModelScope = CoroutineScope(viewModelJob+Dispatchers.Main)
+    var stateData = MutableLiveData<List<State>?>()
+    var intentData = MutableLiveData<String>()
+    var isFollowing = MutableLiveData<Int>()
+    fun getVoterInfoData(id: Int, address: String) {
+        try {
+            viewModelScope.launch {
+                val voterInfoData = try {
+                    repository.getVoterInfo(id, address).await().state
+                } catch (e: Exception) {
+                    emptyList<State>()
+                }
+                stateData.postValue(voterInfoData)
+            }
+        }catch (e:Exception){
+            emptyList<State>()
+        }
 
-    //TODO: Add var and methods to support loading URLs
+    }
 
-    //TODO: Add var and methods to save and remove elections to local database
-    //TODO: cont'd -- Populate initial state of save button to reflect proper action based on election saved status
+    fun openBrowser(url:String){
+        url?.let{
+            intentData.value = url
+        }
+    }
 
-    /**
-     * Hint: The saved state can be accomplished in multiple ways. It is directly related to how elections are saved/removed from the database.
-     */
+    fun followElection(election: Election){
+        viewModelScope.launch {
+            repository.saveElection(election)
+        }
+    }
 
+    fun unFollowElection(election: Election){
+        viewModelScope.launch {
+            repository.deleteElection(election)
+        }
+    }
+
+    fun isFollowing(electionId:Int):LiveData<Int>{
+        viewModelScope.launch {
+            repository.isFollowing(electionId).collect {
+                isFollowing.postValue(it)
+            }
+        }
+        return isFollowing
+    }
 }
