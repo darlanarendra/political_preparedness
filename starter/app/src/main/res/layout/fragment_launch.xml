@@ -7,13 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.android.politicalpreparedness.MainActivity">
-
-        <!-- TODO: Add image for home screen logo. -->
-
-        <!-- TODO: Add Button to navigate to upcoming elections. -->
-
-        <!-- TODO: Add Button to navigate to representatives. -->
-
         <Button
             android:id="@+id/navigate_to_upcoming_elections"
             android:layout_width="0dp"

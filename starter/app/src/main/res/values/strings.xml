@@ -8,7 +8,4 @@
     <string name="voting_locations">Voting Locations</string>
     <string name="upcoming_elections">Upcoming Elections</string>
     <string name="saved_elections">Saved Elections</string>
-
-    <!-- TODO: Add necessary string values -->
-
 </resources>

@@ -12,10 +12,7 @@ import java.lang.Exception
 
 class RepresentativeViewModel(val repository:ElectionRepository): ViewModel() {
 
-    //TODO: Establish live data for representatives and address
     val _representatives = MutableLiveData<List<Representative>>()
-    //TODO: Create function to fetch representatives from API from a provided address
-
     /**
      *  The following code will prove helpful in constructing a representative from the API. This code combines the two nodes of the RepresentativeResponse into a single official :
 
@@ -40,9 +37,4 @@ class RepresentativeViewModel(val repository:ElectionRepository): ViewModel() {
         }
         return _representatives
     }
-
-    //TODO: Create function get address from geo location
-
-    //TODO: Create function to get address from individual fields
-
 }
